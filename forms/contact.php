@@ -1,4 +1,8 @@
 <?php
+
+$nameErr = $emailErr = $subjectErr = $messageErr = "";
+$name = $email = $subject = $message = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize form data
     $name = htmlspecialchars(strip_tags(trim($_POST["name"])));
@@ -6,10 +10,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $subject = htmlspecialchars(strip_tags(trim($_POST["subject"])));
     $message = htmlspecialchars(strip_tags(trim($_POST["message"])));
 
-    // Check that data was sent to the mailer.
-    if (empty($name) or empty($message) or !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "There was a problem with your submission. Please complete the form and try again.";
-        exit;
+    if (empty($_POST["name"])) {
+        $nameErr = "Name is required";
+    } else {
+        $name = test_input($_POST["name"]);
+    }
+
+    if (empty($_POST["email"])) {
+        $emailErr = "Email is required";
+    } else {
+        $email = test_input($_POST["email"]);
+    }
+
+    if (empty($_POST["subject"])) {
+        $subjectErr = "Subject is required";
+    } else {
+        $subject = test_input($_POST["subject"]);
+    }
+
+    if (empty($_POST["message"])) {
+        $messageErrr = "Message is required";
+    } else {
+        $message = test_input($_POST["message"]);
+    }
+
+    if (empty($_POST["gender"])) {
+        $genderErr = "Gender is required";
+    } else {
+        $gender = test_input($_POST["gender"]);
     }
 
     // Set the recipient email address.
@@ -37,7 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         http_response_code(500);
         echo "Oops! Something went wrong, and we couldn't send your message.";
     }
-} else {
+
+ }else {
     // Not a POST request, set a 403 (forbidden) response code.
     http_response_code(403);
     echo "There was a problem with your submission, please try again.";
