@@ -226,4 +226,33 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  //Mobile view experience carousel
+  const carousel = document.querySelector('.carousel');
+  let currentIndex = 0;
+
+  function showSlide(index) {
+      const items = document.querySelectorAll('.carousel-item');
+      if (index >= items.length) index = 0;
+      if (index < 0) index = items.length - 1;
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+      currentIndex = index;
+  }
+
+  let startX;
+  carousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+  });
+
+  carousel.addEventListener('touchmove', (e) => {
+      if (!startX) return;
+      const endX = e.touches[0].clientX;
+      const diff = startX - endX;
+      if (diff > 50) {
+          showSlide(currentIndex + 1);
+      } else if (diff < -50) {
+          showSlide(currentIndex - 1);
+      }
+      startX = null;
+  });
+
 })();

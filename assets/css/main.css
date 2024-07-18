@@ -890,6 +890,36 @@ section,
   transform: scale(1.1);
 }
 
+.carousel {
+    display: flex;
+    overflow: hidden;
+    width: 86%; 
+    background-color: none;
+    padding: 10px;
+    margin: auto;
+}
+
+.carousel-item {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+@media (max-width: 375px) {
+    .carousel {
+        height: 1000px !important;
+    }
+
+    .carousel-item {
+        min-width: 375px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .carousel-item img {
+        width: 86%;
+        height: auto;
+    }
+}
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
@@ -1267,9 +1297,3 @@ section,
   color: var(--accent-color);
 }
 
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
