@@ -228,7 +228,7 @@
             </div>
             <!-- End Section Title -->
 
-            <div class="container" class="carousel">
+            <div class="container">
                 <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
                     <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
                         <li data-filter="*" class="filter-active">All</li>
@@ -248,30 +248,6 @@
                         </div>
                         <!-- End Portfolio Item -->
 
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/timetable.png" class="img-fluid" alt="ctubuddy" />
-                                <div class="portfolio-info">
-                                    <h4>CTU Buddy Website</h4>
-                                    <a href="assets/img/portfolio/ctubuddy.png" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/about.png" class="img-fluid" alt="ctubuddy" />
-                                <div class="portfolio-info">
-                                    <h4>CTU Buddy Website</h4>
-                                    <a href="assets/img/portfolio/about.png" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Portfolio Item -->
-
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
                             <div class="portfolio-content h-100">
                                 <img src="assets/img/portfolio/restu1.png" class="img-fluid" alt="python" />
@@ -284,60 +260,12 @@
                         </div>
                         <!-- End Portfolio Item -->
 
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/restu2.png" class="img-fluid" alt="python" />
-                                <div class="portfolio-info">
-                                    <h4>Restuarant LogIn</h4>
-                                    <a href="assets/img/portfolio/restu2.png" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details2.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/restu3.png" class="img-fluid" alt="python" />
-                                <div class="portfolio-info">
-                                    <h4>Restuarant LogIn</h4>
-                                    <a href="assets/img/portfolio/restu3.png" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details2.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Portfolio Item -->
-
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
                             <div class="portfolio-content h-100">
                                 <img src="assets/img/portfolio/library1.png" class="img-fluid" alt="library" />
                                 <div class="portfolio-info">
                                     <h4>Library Management System</h4>
                                     <a href="assets/img/portfolio/library1.png" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details3.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/library2.png" class="img-fluid" alt="library" />
-                                <div class="portfolio-info">
-                                    <h4>Library Management System</h4>
-                                    <a href="assets/img/portfolio/library2.png" title="Branding 2" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details3.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/library3.png" class="img-fluid" alt="library" />
-                                <div class="portfolio-info">
-                                    <h4>Library Management Syste</h4>
-                                    <a href="assets/img/portfolio/library3.png" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                     <a href="portfolio-details3.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                                 </div>
                             </div>

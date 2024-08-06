@@ -1,46 +1,23 @@
 <?php
+require 'vendor/autoload.php';
 
-// use PHPMailer\PHPMailer\PHPMailer;
-// use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-// require 'phpmailer/phpmailer/Exception.php';
-// require 'phpmailer/phpmailer/PHPMailer.php';
-// require 'phpmailer/phpmailer/SMTP.php';
 
-// $phpmailer = new PHPMailer();
-// $phpmailer->isSMTP();
-// $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
-// $phpmailer->SMTPAuth = true;
-// $phpmailer->Port = 2525;
-// $phpmailer->Username = '8400c07a77a8f3';
-// $phpmailer->Password = '51a8373b0b902f';
+
+$phpmailer = new PHPMailer();
+$phpmailer->isSMTP();
+$phpmailer->Host = 'sandbox.smtp.mailtrap.io';
+$phpmailer->SMTPAuth = true;
+$phpmailer->Port = 2525;
+$phpmailer->Username = '5459b59556611b';
+$phpmailer->Password = '318ea63838c1bd';
 
 $nameErr = "";
 $emailErr = "";
 $messageErr = "";
 $subjectErr = "";
-
-$name = "";
-$email = "";
-$subject = "";
-$message = "";
-
-// $mail->setFrom($email, $name);
-// $mail->addAddress('receiver@gmail.com', 'Me');
-// $mail->Subject = $subject;
-// // Set HTML 
-// $mail->isHTML(TRUE);
-// $mail->Body = '<html>Hi there, we are happy to <br>confirm your booking.</br> Please check the document in the attachment.</html>';
-// $mail->AltBody = 'Hi there, we are happy to confirm your booking. Please check the document in the attachment.';
-
-
-// send the message
-// if (!$mail->send()) {
-//     echo 'Message could not be sent.';
-//     echo 'Mailer Error: ' . $mail->ErrorInfo;
-// } else {
-//     echo 'Message has been sent';
-// }
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -64,6 +41,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($_POST["message"])) {
         echo $messageErr = "Message is required";
+    }
+
+    $phpmailer->setFrom($email, $name);
+    $phpmailer->addAddress('reciever@gmail.com', 'Me');
+    $phpmailer->Subject = $subject;
+    $phpmailer->isHTML(false);
+    $phpmailer->Body = $message;
+
+    if (!$phpmailer->send()) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $phpmailer->ErrorInfo;
+    } else {
+        echo 'Message has been sent';
     }
 } else {
     // Not a POST request, set a 403 (forbidden) response code.
