@@ -348,7 +348,23 @@
                     </div>
                     <!-- End Service Item -->
 
-                </div>
+                    <div class="row gy-4">
+                        <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+                            <div class="icon flex-shrink-0">
+                                <i class="bi bi-briefcase"></i>
+                            </div>
+                            <div>
+                                <h4 class="title">
+                                    <a class="stretched-link">LowkeyIT</a>
+                                </h4>
+                                <p class="description">
+                                    Internship started 1 July 2024 - current
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Service Item -->
+
+                    </div>
         </section>
         <!-- /Services Section -->
 
@@ -392,7 +408,11 @@
                             </div>
                             <!-- End Info Item -->
 
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d424375.47981279995!2d25.20053203177794!3d-33.80112609997845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7b290045ffd62b%3A0x86fd2337cd894226!2sGqeberha!5e0!3m2!1sen!2sza!4v1720805273554!5m2!1sen!2sza" width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d424375.47981279995!2d25.20053203177794!3d-33.80112609997845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7b290045ffd62b%3A0x86fd2337cd894226!2sGqeberha!5e0!3m2!1sen!2sza!4v1720805273554!5m2!1sen!2sza" width="100%"
+                                height="100%"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"></iframe>
                         </div>
                     </div>
 
@@ -401,36 +421,53 @@
                             <div class="row gy-4">
                                 <div class="col-md-6">
                                     <label for="name-field" class="pb-2">Your Name</label>
-                                    <input type="text" name="name" id="name-field" class="form-control" />
+                                    <input type="text" name="name" id="name-field" class="form-control" value="<?php echo isset($name) ? $name : ''; ?>" />
+                                    <span class="text-danger"></span>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label for="email-field" class="pb-2">Your Email</label>
-                                    <input type="email" class="form-control" name="email" id="email-field" />
+                                    <input type="email" class="form-control" name="email" id="email-field" value="<?php echo isset($email) ? $email : ''; ?>" />
+                                    <span class="text-danger"></span>
                                 </div>
 
                                 <div class="col-md-12">
                                     <label for="subject-field" class="pb-2">Subject</label>
-                                    <input type="text" class="form-control" name="subject" id="subject-field" />
+                                    <input type="text" class="form-control" name="subject" id="subject-field" value="<?php echo isset($subject) ? $subject : ''; ?>" />
+                                    <span class="text-danger"></span>
                                 </div>
 
                                 <div class="col-md-12">
                                     <label for="message-field" class="pb-2">Message</label>
-                                    <textarea class="form-control" name="message" rows="10" id="message-field"></textarea>
+                                    <textarea class="form-control" name="message" rows="10" id="message-field"><?php echo isset($message) ? $message : ''; ?></textarea>
+                                    <span class="text-danger"></span>
                                 </div>
 
                                 <div class="col-md-12 text-center">
                                     <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">
-                                        Your message has been sent. Thank you!
-                                    </div>
 
-                                    <button type="submit">Send Message</button>
+                                    <!-- Display Success or Error Message -->
+                                    <div class="col-md-12 text-center">
+                                        <div class="loading">Loading</div>
+
+                                        <!-- Display Success or Error Message -->
+                                        <?php if (isset($success) && $success === true): ?>
+                                            <div class="alert alert-success" role="alert">
+                                                Your message has been sent successfully!
+                                            </div>
+                                        <?php elseif (isset($success) && $success === false): ?>
+                                            <div class="alert alert-danger" role="alert">
+                                                There was an error sending your message. Please try again later.
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <button type="submit">Send Message</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
                     </div>
+
                     <!-- End Contact Form -->
                 </div>
             </div>

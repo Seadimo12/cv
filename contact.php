@@ -4,8 +4,6 @@ require 'vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-
-
 $phpmailer = new PHPMailer();
 $phpmailer->isSMTP();
 $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
@@ -18,7 +16,7 @@ $nameErr = "";
 $emailErr = "";
 $messageErr = "";
 $subjectErr = "";
-
+$success = null; // Set to null initially
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize form data
@@ -27,36 +25,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $subject = htmlspecialchars(strip_tags(trim($_POST["subject"])));
     $message = htmlspecialchars(strip_tags(trim($_POST["message"])));
 
-    if (empty($_POST["name"])) {
-        echo $nameErr = "Name is required";
+    // Validate inputs
+    if (empty($name)) {
+        $nameErr = "Name is required";
     }
 
-    if (empty($_POST["email"])) {
-        echo $emailErr = "Email is required";
+    if (empty($email)) {
+        $emailErr = "Email is required";
     }
 
-    if (empty($_POST["subject"])) {
-        echo $subjectErr = "Subject is required";
+    if (empty($subject)) {
+        $subjectErr = "Subject is required";
     }
 
-    if (empty($_POST["message"])) {
-        echo $messageErr = "Message is required";
+    if (empty($message)) {
+        $messageErr = "Message is required";
     }
 
-    $phpmailer->setFrom($email, $name);
-    $phpmailer->addAddress('reciever@gmail.com', 'Me');
-    $phpmailer->Subject = $subject;
-    $phpmailer->isHTML(false);
-    $phpmailer->Body = $message;
+    if (empty($nameErr) && empty($emailErr) && empty($subjectErr) && empty($messageErr)) {
+        // Set up email
+        $phpmailer->setFrom($email, $name);
+        $phpmailer->addAddress('receiver@gmail.com', 'Me');
+        $phpmailer->Subject = $subject;
+        $phpmailer->isHTML(false);
+        $phpmailer->Body = $message;
 
-    if (!$phpmailer->send()) {
-        echo 'Message could not be sent.';
-        echo 'Mailer Error: ' . $phpmailer->ErrorInfo;
-    } else {
-        echo 'Message has been sent';
+        // Send email
+        if ($phpmailer->send()) {
+            $success = true;
+        } else {
+            $success = false;
+        }
     }
-} else {
-    // Not a POST request, set a 403 (forbidden) response code.
-    http_response_code(403);
-    echo "There was a problem with your submission, please try again.";
 }
